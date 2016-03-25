@@ -1,5 +1,7 @@
 language: python
 
+cache: pip
+
 python:
   - "2.7_with_system_site_packages"
 
@@ -27,6 +29,7 @@ install:
   - conda create --yes -n condaenv python=2.7
   - conda install --yes -n condaenv pip scipy==0.16.0
   - source activate condaenv
+  - conda install --yes -c https://conda.anaconda.org/osgeo gdal
   - travis_wait "pip install -r requirements.txt"
   - easy_install --upgrade numpy
 
